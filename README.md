@@ -23,6 +23,12 @@ Install using `pip`...
 Configure ii-django-backup in your Django settings:
 
 ```python
+INSTALLED_APPS = {
+    [..],
+    'ii_django_backup',
+    [..],
+}
+
 II_DJANGO_BACKUP = {
     'DIR': '/var/backups/',
     'DROPBOX_ACCESS_TOKEN': '**********',
