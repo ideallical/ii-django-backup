@@ -9,14 +9,14 @@
 ## Installation
 
 Install using `pip`...
-
-    pip install ii-django-backup
-
+```shell
+   $ pip install ii-django-backup
+```
 
 ## Running
-
-    python manage.py backup_database
-
+```shell
+   $ python manage.py backup_database
+```
 
 ## Configuration
 
@@ -51,6 +51,40 @@ By default this is set to `None`.
 
 Setting `II_DJANGO_BACKUP['USE_GZIP']` to `True` enables Gzipping the backup
 file. By default this is set to `True`.
+
+# Trouble shooting
+Note that passwords are NOT sent over the commandline (for security reasons).
+Therefor you need to make sure the mysqldump and pgdump commands know your
+database's password to do backups without password prompt.
+
+For Postgres:
+
+either create a `.pgpass` file in your home-directory and chmod it 600.
+The content could look like this:
+
+```t
+localhost:5432:database_name:username:secretPassword
+```
+
+or set an ENV named PGPASSWORD with your Postgres database password. For Heroku you would be able to do this like so:
+
+```shell
+   $ heroku config:set PGPASSWORD=secretPassword
+```
+
+For MySQL:
+
+Create a `.my.cnf` file in your home-directory and chmod it 600.
+The content could look like this:
+
+```t
+[mysqldump]
+user=username
+password=secretPassword
+[client]
+user=username
+password=secretPassword
+```
 
 [pypi-version]: https://img.shields.io/pypi/v/ii-django-backup.svg
 [pypi]: https://pypi.python.org/pypi/ii-django-backup
