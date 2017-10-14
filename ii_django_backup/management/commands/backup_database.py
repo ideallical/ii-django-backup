@@ -56,13 +56,29 @@ class Command(BaseCommand):
         :raises CommandError: if the db_dict['ENGINE'] is unknown
         """
         db_type = db_dict['ENGINE']
+        # set default HOST
+        if db_dict['HOST'] in ['', None]:
+            db_dict['HOST'] = 'localhost'
 
         if db_type in ['django.db.backends.postgresql_psycopg2',
                        'django.contrib.gis.db.backends.postgis']:
+
+            # set default Postgres PORT
+            if db_dict['PORT'] in ['', None]:
+                db_dict['PORT'] = 5432
+
             cmd = ('pg_dump -U {USER} -h {HOST} -p {PORT} -Fc {NAME}'
                    ' --no-owner').format(**db_dict)
+
         elif db_type == 'django.db.backends.mysql':
-            cmd = 'mysqldump --opt -Q -u {USER} {NAME}'.format(**db_dict)
+
+            # set default MySQL PORT
+            if db_dict['PORT'] in ['', None]:
+                db_dict['PORT'] = 3306
+
+            cmd = (
+                'mysqldump --opt -Q -h {HOST} -P {PORT} -u {USER} '
+                '{NAME}').format(**db_dict)
         else:
             raise CommandError(
                 'No backup command is implemented for {}'.format(db_type))
