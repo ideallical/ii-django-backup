@@ -122,12 +122,12 @@ class BackupSettings(object):
         return val
 
     def __check_user_settings(self, user_settings):
-        SETTINGS_DOC = "https://github.com/ideallical/ii-django-backup/"
+        SETTINGS_DOC = 'https://github.com/ideallical/ii-django-backup/'
         for setting in REMOVED_SETTINGS:
             if setting in user_settings:
                 raise RuntimeError(
-                    "The '{}' setting has been removed. Please refer to '{}' "
-                    "for available settings.".format(setting, SETTINGS_DOC))
+                    'The "{}" setting has been removed. Please refer to "{}" '
+                    'for available settings.'.format(setting, SETTINGS_DOC))
         return user_settings
 
 
