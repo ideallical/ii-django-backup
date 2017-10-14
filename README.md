@@ -30,11 +30,10 @@ Let's take a look at a quick example of using ii-django-backup:
 Setting `II_DJANGO_BACKUP['DIR']` to `'/var/backups/'` let's ii-django-backup
 know where to store your backups locally.
 By default this is set to `os.path.join(settings.BASE_DIR, 'backups')`; this
-requires your settings knowing about BASE_DIR.
+requires `BASE_DIR` being defined in your Django settings.
 
 Setting `II_DJANGO_BACKUP['DROPBOX_ACCESS_TOKEN']` to `**********`, enables
-backuping up to Dropbox with this access token. By default this is set to
-`None`.
+backup to Dropbox using this access token. By default this is set to `None`.
 
 Setting `II_DJANGO_BACKUP['DROPBOX_DIR']` to `/websitename/staging/` let's
 ii-django-backup know where to store your backups at Dropbox.
