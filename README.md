@@ -13,18 +13,22 @@ Install using `pip`...
     pip install ii-django-backup
 
 
-## Example
+## Running
 
-Let's take a look at a quick example of using ii-django-backup:
+    python manage.py backup_database
+
+
+## Configuration
+
+Configure ii-django-backup in your Django settings:
 
 ```python
-
-    II_DJANGO_BACKUP = {
-        'DIR': '/var/backups/',
-        'DROPBOX_ACCESS_TOKEN': '**********',
-        'DROPBOX_DIR': '/websitename/staging/',
-        'USE_GZIP': True,
-    }
+II_DJANGO_BACKUP = {
+    'DIR': '/var/backups/',
+    'DROPBOX_ACCESS_TOKEN': '**********',
+    'DROPBOX_DIR': '/websitename/staging/',
+    'USE_GZIP': True,
+}
 ```
 
 Setting `II_DJANGO_BACKUP['DIR']` to `'/var/backups/'` let's ii-django-backup
