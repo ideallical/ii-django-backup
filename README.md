@@ -10,12 +10,12 @@
 
 Install using `pip`...
 ```shell
-   $ pip install ii-django-backup
+$ pip install ii-django-backup
 ```
 
 ## Running
 ```shell
-   $ python manage.py backup_database
+$ python manage.py backup_database
 ```
 
 ## Configuration
@@ -69,7 +69,7 @@ localhost:5432:database_name:username:secretPassword
 or set an ENV named PGPASSWORD with your Postgres database password. For Heroku you would be able to do this like so:
 
 ```shell
-   $ heroku config:set PGPASSWORD=secretPassword
+$ heroku config:set PGPASSWORD=secretPassword
 ```
 
 For MySQL:
@@ -81,6 +81,7 @@ The content could look like this:
 [mysqldump]
 user=username
 password=secretPassword
+
 [client]
 user=username
 password=secretPassword
