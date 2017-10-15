@@ -49,13 +49,14 @@ setup(
     description='ideallical django backup',
     url='https://github.com/ideallical/ii-django-backup',
     download_url=('https://github.com/ideallical/ii-django-backup/archive/'
-                  '0.1.tar.gz'),
+                  '{}.tar.gz'.format(version)),
     author='ideallical',
     author_email='info@ideallical.com',
     keywords=['django', 'backup', 'dropbox'],
     license='BSD',
     install_requires=[
         'dropbox>=7.1.1',
+        'ii-django-package-settings>=0.1'
     ],
     packages=get_packages('ii_django_backup'),
     package_data=get_package_data('ii_django_backup'),
