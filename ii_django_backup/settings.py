@@ -39,7 +39,6 @@ class BackupSettings(PackageSettings):
         'USE_GZIP': True,
     }
     IMPORT_STRINGS = ('NAME_GENERATOR_FUNC', )
-    REMOVED_SETTINGS = ('LOLCAT', )
 
 
 backup_settings = BackupSettings(None)
