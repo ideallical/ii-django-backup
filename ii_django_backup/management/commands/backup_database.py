@@ -122,7 +122,7 @@ class Command(BaseCommand):
 
         # backup locally
         cmd = self.get_backup_command(db_dict, backup_path)
-        subprocess.call(cmd, shell=True)
+        subprocess.call(cmd, shell=True)  # nosec
 
         # backup to dropbox if needed
         if bs.DROPBOX_ACCESS_TOKEN is not None:
