@@ -1,6 +1,6 @@
 import datetime
 import os
-import subprocess
+import subprocess  # nosec
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
